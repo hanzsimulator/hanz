@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fx. Hanggar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: transform 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+        .container:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            color: #666;
+        }
+        .socials button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff5733, #ffcc33);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+        .socials button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ffcc33, #ff5733);
+        }
+        @keyframes fire {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+}
+
+@keyframes snow {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.fire {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: orange;
+    border-radius: 50%;
+    bottom: 0;
+    animation: fire 1s infinite linear;
+}
+
+.snow {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    top: 0;
+    animation: snow 5s infinite linear;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="profile.jpg" alt="Foto Profil">
+        <h1>Fx. Hanggar</h1>
+        <p>Cadets Pelayaran With SMK PELAYARAN JAKARTA RAYA.</p>
+        <div class="socials">
+            <button onclick="window.location.href='https://www.instagram.com/hanz.0901?igsh=MTQ5NHFicWtuZno5cw%3D%3D&utm_source=qr'">Instagram</button>
+            <button onclick="window.location.href='https://github.com/hanzsimulator'">GitHub</button>
+            <button onclick="window.location.href='https://x.com/hanzxboyz?s=21'">X</button>
+            <button onclick="window.location.href='https://hanzsimulator.github.io/crypto'">Games</button>
+        </div>
+        <script>
+function createFire() {
+    let fire = document.createElement("div");
+    fire.className = "fire";
+    fire.style.left = Math.random() * window.innerWidth + "px";
+    fire.style.animationDuration = Math.random() * 2 + 1 + "s";
+    document.body.appendChild(fire);
+    setTimeout(() => fire.remove(), 1000);
+}
+setInterval(createFire, 200);
+
+function createSnow() {
+    let snow = document.createElement("div");
+    snow.className = "snow";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.animationDuration = Math.random() * 5 + 3 + "s";
+    document.body.appendChild(snow);
+    setTimeout(() => snow.remove(), 5000);
+}
+setInterval(createSnow, 500);
+        </script>
+</body>
+</html>
